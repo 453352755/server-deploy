@@ -74,7 +74,7 @@ sudo sed -i 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' 
 sudo ufw allow 443/tcp
 sudo ufw allow OpenSSH
 sudo ufw disable
-sudo ufw enable --assume-yes
+sudo ufw --force enable
 
 #Start and Enable the OpenVPN Service
 sudo systemctl start openvpn@server --no-pager
@@ -88,7 +88,7 @@ mkdir -p ~/client-configs/files
 chmod 700 ~/client-configs/files
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf ~/client-configs/base.conf
 
-IP_ADDRESS=`curl http://169.254.169.254/latest/meta-data/public-ipv4`
+IP_ADDRESS=`curl https://api.ipify.org`
 echo ${IP_ADDRESS}
 
 sed -i \

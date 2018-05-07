@@ -11,7 +11,7 @@ sed -i 's/--interact//g' build-key
 KEY_DIR=~/openvpn-ca/keys
 OUTPUT_DIR=~/client-configs/files
 BASE_CONFIG=~/client-configs/base.conf
-IP_ADDRESS=`curl http://169.254.169.254/latest/meta-data/public-ipv4`
+IP_ADDRESS=`curl https://api.ipify.org`
 
 
 cat ${BASE_CONFIG} \
